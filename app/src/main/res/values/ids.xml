@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="inputId" type="id" />
+    <item name="inputName" type="id" />
+    <item name="inputRank" type="id" />
+    <item name="inputRate" type="id" />
+    <item name="nameText" type="id" />
+    <item name="detailsText" type="id" />
+    <item name="deleteButton" type="id" />
+    <item name="fab" type="id" />
+    <item name="emptyText" type="id" />
+    <item name="recyclerView" type="id" />
+    <item name="etNumber" type="id" />
+    <item name="etName" type="id" />
+    <item name="etRank" type="id" />
+    <item name="etRate" type="id" />
+    <item name="btnAdd" type="id" />
+    <item name="btnAddEmp" type="id" />
+</resources>
