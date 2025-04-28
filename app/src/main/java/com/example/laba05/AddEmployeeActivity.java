@@ -15,10 +15,10 @@ public class AddEmployeeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
 
-        // Инициализация полей ввода
+
         initViews();
 
-        // Обработка кнопки "ADD"
+
         findViewById(R.id.btnAddEmp).setOnClickListener(v -> onAddButtonClick());
     }
 
@@ -35,16 +35,16 @@ public class AddEmployeeActivity extends AppCompatActivity {
         String rank = etRank.getText().toString().trim();
         String rate = etRate.getText().toString().trim();
 
-        // Проверка на пустые поля
+
         if (number.isEmpty() || name.isEmpty() || rank.isEmpty() || rate.isEmpty()) {
             Toast.makeText(this, "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Создание объекта сотрудника
+
         Employee employee = new Employee(number, name, rank, rate);
 
-        // Возврат результата в MainActivity
+
         Intent resultIntent = new Intent();
         resultIntent.putExtra("employee", employee);
         setResult(RESULT_OK, resultIntent);

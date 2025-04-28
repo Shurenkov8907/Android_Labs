@@ -8,15 +8,25 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-
 public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHolder> {
 
     private List<Employee> list;
     private Runnable onListChanged;
+    private OnItemClickListener onItemClickListener;  // Добавляем интерфейс для обработки кликов
+
+    // Интерфейс для обработки кликов
+    public interface OnItemClickListener {
+        void onItemClick(Employee employee);
+    }
 
     public EmployeeAdapter(List<Employee> list, Runnable onListChanged) {
         this.list = list;
         this.onListChanged = onListChanged;
+    }
+
+    // Метод для установки слушателя кликов
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -27,6 +37,13 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
             super(itemView);
             tvData = itemView.findViewById(R.id.tvData);
             btnDelete = itemView.findViewById(R.id.btnDelete);
+
+            // Устанавливаем обработчик кликов для каждого элемента списка
+            itemView.setOnClickListener(v -> {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(list.get(getAdapterPosition()));
+                }
+            });
         }
     }
 
@@ -56,4 +73,3 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         return list.size();
     }
 }
-
